@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Banner;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -12,7 +13,8 @@ class HomeController extends Controller
     public function index()
     {
         $banners = Banner::latest()->get();
-        return view('home.home', compact('banners'));
+        $categories = Category::all();
+        return view('home.home', compact('banners', 'categories'));
     }
 
     /**
