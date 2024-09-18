@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Product;
 use App\Models\Banner;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -14,7 +15,8 @@ class HomeController extends Controller
     {
         $banners = Banner::latest()->get();
         $categories = Category::all();
-        return view('home.home', compact('banners', 'categories'));
+        $products = Product::latest()->take(6)->get();
+        return view('home.home', compact('banners', 'categories', 'products'));
     }
 
     /**

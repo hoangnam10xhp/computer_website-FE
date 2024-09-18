@@ -1,5 +1,5 @@
 @php
-    $baseUrl = 'http://127.0.0.1:8081/storage';
+    $baseUrl = config('app.url');
 @endphp
 
 <section id="slider"><!--slider-->
@@ -16,7 +16,7 @@
                     <div class="carousel-inner">
                         @foreach ($banners as $key => $banner)
                             <div class="item {{ $key == 0 ? 'active' : '' }}">
-                                <img src="{{ $baseUrl . '/' . $banner->image_path }}" alt="Banner" />
+                                <img src="{{ $baseUrl . '/storage/' . $banner->image_path }}" alt="Banner" />
                             </div>
                         @endforeach
                     </div>
